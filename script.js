@@ -1,4 +1,4 @@
-/* ----- SCROLL TO TOP ON PAGE LOAD ----- */
+/* SCROLL TO TOP ON PAGE LOAD */
 window.addEventListener("load", () => {
   window.scrollTo(0, 0); // Force scroll to top
   // Ensure Home link is active
@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
   document.querySelector(".nav-link[href='#home']").classList.add("active-link");
 });
 
-/* ----- FORM SUBMISSION HANDLING ----- */
+/* FORM SUBMISSION HANDLING */
 const contactForm = document.getElementById("contact-form");
 const successMessage = document.getElementById("success-message");
 
@@ -24,13 +24,13 @@ contactForm.addEventListener("submit", (e) => {
   }, 100); // Small delay to ensure submission starts
 });
 
-/* ----- NAVIGATION BAR FUNCTION ----- */
+/* NAVIGATION BAR FUNCTION */
 function myMenuFunction() {
   const menuBtn = document.getElementById("myNavMenu");
   menuBtn.classList.toggle("responsive");
 }
 
-/* ----- CLOSE MOBILE MENU ON LINK CLICK ----- */
+/* CLOSE MOBILE MENU ON LINK CLICK */
 const navLinks = document.querySelectorAll(".nav-link");
 navLinks.forEach(link => {
   link.addEventListener("click", () => {
@@ -39,7 +39,7 @@ navLinks.forEach(link => {
   });
 });
 
-/* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
+/* ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING */
 window.onscroll = function () {
   headerShadow();
 };
@@ -58,7 +58,7 @@ function headerShadow() {
   }
 }
 
-/* ----- TYPING EFFECT ----- */
+/* TYPING EFFECT */
 const typingEffect = new Typed(".typedText", {
   strings: ["Designer", "Developer", "Innovator"],
   loop: true,
@@ -68,7 +68,7 @@ const typingEffect = new Typed(".typedText", {
   startDelay: 500,
 });
 
-/* ----- SCROLL REVEAL ANIMATION ----- */
+/* SCROLL REVEAL ANIMATION */
 const sr = ScrollReveal({
   origin: "top",
   distance: "60px",
@@ -77,7 +77,7 @@ const sr = ScrollReveal({
   reset: true,
 });
 
-/* -- HOME -- */
+/* HOME */
 sr.reveal(".featured-box", { delay: 100 });
 sr.reveal(".featured-text-card", { delay: 100 });
 sr.reveal(".featured-name", { delay: 300 });
@@ -85,13 +85,13 @@ sr.reveal(".featured-text-info", { delay: 400 });
 sr.reveal(".featured-text-btn", { delay: 400 });
 sr.reveal(".social_icons", { delay: 500 });
 
-/* -- PROJECT BOX -- */
+/* PROJECT BOX */
 sr.reveal(".project-box", { interval: 200 });
 
-/* -- HEADINGS -- */
+/* HEADINGS */
 sr.reveal(".top-header", { delay: 100 });
 
-/* ----- SCROLL REVEAL LEFT_RIGHT ANIMATION ----- */
+/* SCROLL REVEAL LEFT_RIGHT ANIMATION */
 const srLeft = ScrollReveal({
   origin: "left",
   distance: "60px",
@@ -114,7 +114,7 @@ const srRight = ScrollReveal({
 srRight.reveal(".skills-box", { delay: 300 });
 srRight.reveal(".form-control", { delay: 300 });
 
-/* ----- CHANGE ACTIVE LINK ----- */
+/* CHANGE ACTIVE LINK */
 const sections = document.querySelectorAll("section[id]");
 function scrollActive() {
   const scrollY = window.scrollY;
@@ -137,7 +137,7 @@ function scrollActive() {
 }
 window.addEventListener("scroll", scrollActive);
 
-/* ----- NAVIGATION UNDERLINE EFFECT ----- */
+/* NAVIGATION UNDERLINE EFFECT */
 const navMenuList = document.querySelector(".nav_menu_list");
 
 function updateUnderline() {
@@ -163,28 +163,27 @@ navMenuList.addEventListener("mouseleave", updateUnderline);
 window.addEventListener("load", updateUnderline);
 window.addEventListener("resize", updateUnderline);
 
-/* ----- DARK MODE TOGGLE ----- */
+/* DARK MODE TOGGLE */
 const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const themeToggleDesktop = document.getElementById("theme-toggle-desktop");
-const themeIcons = document.querySelectorAll(".theme-toggle i, .theme-toggle-mobile i");
 
 // Check for saved theme in localStorage
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
-  themeIcons.forEach(icon => icon.classList.replace("uil-moon", "uil-sun"));
 }
 
 // Toggle dark mode on button click for both mobile and desktop
-const toggleTheme = () => {
+const toggleTheme = (e) => {
+  e.preventDefault(); // Prevent default touch behavior
   document.body.classList.toggle("dark-mode");
   if (document.body.classList.contains("dark-mode")) {
-    themeIcons.forEach(icon => icon.classList.replace("uil-moon", "uil-sun"));
     localStorage.setItem("theme", "dark");
   } else {
-    themeIcons.forEach(icon => icon.classList.replace("uil-sun", "uil-moon"));
     localStorage.setItem("theme", "light");
   }
 };
 
 themeToggleMobile.addEventListener("click", toggleTheme);
+themeToggleMobile.addEventListener("touchstart", toggleTheme);
 themeToggleDesktop.addEventListener("click", toggleTheme);
+themeToggleDesktop.addEventListener("touchstart", toggleTheme);

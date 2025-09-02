@@ -3,28 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- --------- UNICONS ---------- -->
+    <!-- UNICONS -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
-
-    <!-- --------- FAVICON ---------- -->
+    <!-- FAVICON -->
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
       type="image/x-icon"
     />
-
-    <!-- --------- CSS ---------- -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css" />
-
     <title>Eslam Gamil - Portfolio</title>
   </head>
   <body>
     <div class="container">
-      <!-- --------------- HEADER --------------- -->
+      <!-- HEADER -->
       <nav id="header">
         <div class="nav-logo">
           <p class="nav-name">E.G</p>
@@ -51,21 +47,23 @@
               Download CV <i class="uil uil-file-alt"></i>
             </button>
           </a>
-          <button class="btn theme-toggle" id="theme-toggle-desktop">
-            <i class="uil uil-moon"></i>
+          <button class="theme-toggle" id="theme-toggle-desktop">
+            <i class="theme-icon uil uil-moon"></i>
+            <i class="theme-icon uil uil-sun"></i>
           </button>
         </div>
         <div class="nav-menu-btn">
           <i class="uil uil-bars" onclick="myMenuFunction()"></i>
           <button class="theme-toggle-mobile" id="theme-toggle-mobile">
-            <i class="uil uil-moon"></i>
+            <i class="theme-icon uil uil-moon"></i>
+            <i class="theme-icon uil uil-sun"></i>
           </button>
         </div>
       </nav>
 
-      <!-- -------------- MAIN ---------------- -->
+      <!-- MAIN -->
       <main class="wrapper">
-        <!-- -------------- FEATURED BOX ---------------- -->
+        <!-- FEATURED BOX -->
         <section class="featured-box" id="home">
           <div class="featured-text">
             <div class="featured-text-card">
@@ -120,7 +118,7 @@
             </a>
           </div>
         </section>
-        <!-- -------------- ABOUT BOX ---------------- -->
+        <!-- ABOUT BOX -->
         <section class="section" id="about">
           <div class="top-header">
             <h1>About Me</h1>
@@ -155,6 +153,7 @@
                   <span>CSS</span>
                   <span>Bootstrap</span>
                   <span>JavaScript</span>
+                  <span>Vue</span>
                   <span>React</span>
                   <span>Angular</span>
                 </div>
@@ -164,6 +163,7 @@
                   <h3>Backend</h3>
                 </div>
                 <div class="skills-list">
+                  <span>PHP</span>
                   <span>Java</span>
                   <span>Python</span>
                   <span>C++</span>
@@ -175,6 +175,7 @@
                 </div>
                 <div class="skills-list">
                   <span>MySQL</span>
+                  <span>PostgreSQL</span>
                   <span>MongoDB</span>
                 </div>
               </div>
@@ -182,7 +183,7 @@
           </div>
         </section>
 
-        <!-- -------------- PROJECT BOX ---------------- -->
+        <!-- PROJECT BOX -->
         <section class="section" id="projects">
           <div class="top-header">
             <h1>Projects</h1>
@@ -191,22 +192,22 @@
             <div class="project-box">
               <i class="uil uil-briefcase-alt"></i>
               <h3>Completed</h3>
-              <label>5+ Finished Projects</label>
+              <label>15+ Finished Projects</label>
             </div>
             <div class="project-box">
               <i class="uil uil-users-alt"></i>
               <h3>Clients</h3>
-              <label>50+ Happy Clients</label>
+              <label>2000+ Happy Clients</label>
             </div>
             <div class="project-box">
               <i class="uil uil-award"></i>
               <h3>Experience</h3>
-              <label>2+ Years in the Field</label>
+              <label>7+ Years in the Field</label>
             </div>
           </div>
         </section>
 
-        <!-- -------------- CONTACT BOX ---------------- -->
+        <!-- CONTACT BOX -->
         <section class="section" id="contact">
           <div class="top-header">
             <h1>Get in Touch</h1>
@@ -248,10 +249,10 @@
         </section>
       </main>
 
-      <!-- --------------- HIDDEN IFRAME FOR FORMSPREE ---------------- -->
+      <!-- HIDDEN IFRAME FOR FORMSPREE -->
       <iframe name="formspree-iframe" style="display: none;"></iframe>
 
-      <!-- --------------- FOOTER --------------- -->
+      <!-- FOOTER -->
       <footer>
         <div class="top-footer">
           <p>Eslam Gamil</p>
@@ -304,13 +305,11 @@
       </footer>
     </div>
 
-    <!-- ----- TYPING JS Link ----- -->
+    <!-- TYPING JS -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <!-- SCROLL REVEAL JS -->
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-
-    <!-- ----- MAIN JS ----- -->
+    <!-- MAIN JS -->
     <script src="script.js"></script>
   </body>
 </html>
