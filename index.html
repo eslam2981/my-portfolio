@@ -3,32 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- UNICONS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <!-- --------- UNICONS ---------- -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
-    <!-- FAVICON -->
+    <!-- --------- FAVICON ---------- -->
     <link
       rel="shortcut icon"
       href="assets/images/favicon.png"
       type="image/x-icon"
     />
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="Eslam Gamil - Frontend Developer portfolio showcasing projects, skills, and contact information." />
+    <meta name="theme-color" content="#5a46c8" />
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Eslam Gamil - Portfolio" />
+    <meta property="og:description" content="Frontend Developer crafting modern, responsive and accessible web experiences." />
+    <meta property="og:type" content="website" />
     <title>Eslam Gamil - Portfolio</title>
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a href="#home" class="skip-link">Skip to content</a>
     <div class="container">
-      <!-- HEADER -->
-      <nav id="header">
+      <!-- --------------- HEADER --------------- -->
+      <nav id="header" role="navigation" aria-label="Primary">
         <div class="nav-logo">
           <p class="nav-name">E.G</p>
         </div>
         <div class="nav-menu" id="myNavMenu">
           <ul class="nav_menu_list">
             <li class="nav_list">
-              <a href="#home" class="nav-link active-link">Home</a>
+              <a href="#home" class="nav-link active-link" aria-current="page">Home</a>
             </li>
             <li class="nav_list">
               <a href="#about" class="nav-link">About</a>
@@ -43,28 +53,29 @@
         </div>
         <div class="nav-button">
           <a href="assets/Eslam_Gamil_Ebrahim_CV.pdf" download>
-            <button class="btn">
-              Download CV <i class="uil uil-file-alt"></i>
+            <button class="btn" aria-label="Download CV">
+              Download CV <i class="uil uil-file-alt" aria-hidden="true"></i>
             </button>
           </a>
-          <button class="theme-toggle" id="theme-toggle-desktop">
-            <i class="theme-icon uil uil-moon"></i>
-            <i class="theme-icon uil uil-sun"></i>
+          <button class="theme-toggle" id="theme-toggle-desktop" aria-label="Toggle theme">
+            <i class="theme-icon uil uil-moon" aria-hidden="true"></i>
+            <i class="theme-icon uil uil-sun" aria-hidden="true"></i>
           </button>
         </div>
         <div class="nav-menu-btn">
-          <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-          <button class="theme-toggle-mobile" id="theme-toggle-mobile">
-            <i class="theme-icon uil uil-moon"></i>
-            <i class="theme-icon uil uil-sun"></i>
+          <i class="uil uil-bars" id="mobile-menu-toggle" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false" onclick="myMenuFunction()"></i>
+          <button class="theme-toggle-mobile" id="theme-toggle-mobile" aria-label="Toggle theme">
+            <i class="theme-icon uil uil-moon" aria-hidden="true"></i>
+            <i class="theme-icon uil uil-sun" aria-hidden="true"></i>
           </button>
         </div>
       </nav>
-
-      <!-- MAIN -->
-      <main class="wrapper">
-        <!-- FEATURED BOX -->
+      <!-- -------------- MAIN ---------------- -->
+      <main class="wrapper" id="home">
+        <!-- -------------- FEATURED BOX ---------------- -->
         <section class="featured-box" id="home">
+          <div class="hero-blob one" aria-hidden="true"></div>
+          <div class="hero-blob two" aria-hidden="true"></div>
           <div class="featured-text">
             <div class="featured-text-card">
               <span>Eslam Gamil</span>
@@ -80,45 +91,45 @@
             </div>
             <div class="featured-text-btn">
               <a href="#contact" class="btn blue-btn">
-                Hire Me <i class="uil uil-message"></i>
+                Hire Me <i class="uil uil-message" aria-hidden="true"></i>
               </a>
               <a href="assets/Eslam_Gamil_Ebrahim_CV.pdf" download>
-                <button class="btn">
-                  Download CV <i class="uil uil-file-alt"></i>
+                <button class="btn" aria-label="Download CV">
+                  Download CV <i class="uil uil-file-alt" aria-hidden="true"></i>
                 </button>
               </a>
             </div>
             <div class="social_icons">
               <div class="icon">
-                <a href="https://www.instagram.com/eslam.div?igsh=ZDliZXd2d2wxbXJz&utm_source=qr" target="_blank">
-                  <i class="uil uil-instagram"></i>
+                <a href="https://www.instagram.com/eslam.div?igsh=ZDliZXd2d2wxbXJz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <i class="uil uil-instagram" aria-hidden="true"></i>
                 </a>
               </div>
               <div class="icon">
-                <a href="https://www.linkedin.com/in/eslam-gamil-bb2008256/" target="_blank">
-                  <i class="uil uil-linkedin-alt"></i>
+                <a href="https://www.linkedin.com/in/eslam-gamil-bb2008256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
                 </a>
               </div>
               <div class="icon">
-                <a href="https://www.facebook.com/share/1CQXB2QxgT/?mibextid=wwXIfr" target="_blank">
-                  <i class="uil uil-facebook-f"></i>
+                <a href="https://www.facebook.com/share/1CQXB2QxgT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <i class="uil uil-facebook-f" aria-hidden="true"></i>
                 </a>
               </div>
               <div class="icon">
-                <a href="https://github.com/eslam2981" target="_blank">
-                  <i class="uil uil-github-alt"></i>
+                <a href="https://github.com/eslam2981" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <i class="uil uil-github-alt" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
           </div>
           <div class="scroll-icon-box">
             <a href="#about" class="scroll-btn">
-              <i class="uil uil-mouse-alt"></i>
+              <i class="uil uil-mouse-alt" aria-hidden="true"></i>
               <p>Scroll Down</p>
             </a>
           </div>
         </section>
-        <!-- ABOUT BOX -->
+        <!-- -------------- ABOUT BOX ---------------- -->
         <section class="section" id="about">
           <div class="top-header">
             <h1>About Me</h1>
@@ -173,38 +184,36 @@
                 </div>
                 <div class="skills-list">
                   <span>MySQL</span>
-                  <span>MongoDB</span>
+                  <span>PostgreSQL</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- PROJECT BOX -->
+        <!-- -------------- PROJECT BOX ---------------- -->
         <section class="section" id="projects">
           <div class="top-header">
             <h1>Projects</h1>
           </div>
-          <div class="project-container">
+          <div class="project-container" aria-label="Stats">
             <div class="project-box">
-              <i class="uil uil-briefcase-alt"></i>
+              <i class="uil uil-briefcase-alt" aria-hidden="true"></i>
               <h3>Completed</h3>
-              <label>15+ Finished Projects</label>
+              <label>5+ Finished Projects</label>
             </div>
             <div class="project-box">
-              <i class="uil uil-users-alt"></i>
+              <i class="uil uil-users-alt" aria-hidden="true"></i>
               <h3>Clients</h3>
-              <label>2000+ Happy Clients</label>
+              <label>20+ Happy Clients</label>
             </div>
             <div class="project-box">
-              <i class="uil uil-award"></i>
+              <i class="uil uil-award" aria-hidden="true"></i>
               <h3>Experience</h3>
-              <label>7+ Years in the Field</label>
+              <label>2+ Years in the Field</label>
             </div>
           </div>
         </section>
-
-        <!-- CONTACT BOX -->
+        <!-- -------------- CONTACT BOX ---------------- -->
         <section class="section" id="contact">
           <div class="top-header">
             <h1>Get in Touch</h1>
@@ -214,42 +223,64 @@
             <div class="col">
               <div class="contact-info">
                 <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                <p>
-                  <i class="uil uil-envelope"></i> Email:
-                  eslamgamil214@gmail.com
-                </p>
-                <p><i class="uil uil-phone"></i> Tel: +20 01211735629</p>
+                <p><i class="uil uil-envelope"></i> Email: eslam2981@gmail.com</p>
+                <p><i class="uil uil-phone"></i> Tel: +201060939123</p>
               </div>
             </div>
             <div class="col">
-              <form action="https://formspree.io/f/mgvllpoa" method="POST" class="form-control" id="contact-form" target="formspree-iframe">
-                <div class="success-message" id="success-message">
+              <div class="form-control">
+                <div class="success-message" id="successMessage">
                   Message sent successfully!
                 </div>
-                <div class="form-inputs">
-                  <input type="text" name="name" class="input-field" placeholder="Name" required />
-                  <input type="email" name="_replyto" class="input-field" placeholder="Email" required />
-                </div>
-                <div class="text-area">
-                  <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <input type="hidden" name="_subject" value="New Contact Form Submission - Eslam Gamil Portfolio" />
-                <input type="text" name="_gotcha" class="honeypot-field" />
-                <div class="form-button">
-                  <button type="submit" class="btn">
-                    Send <i class="uil uil-message"></i>
-                  </button>
-                </div>
-              </form>
+                <form
+                  action="https://formspree.io/f/xrbzgnky"
+                  method="POST"
+                  target="formspree-iframe"
+                  id="contact-form"
+                >
+                  <div class="form-inputs">
+                    <input
+                      type="text"
+                      class="input-field"
+                      placeholder="Name"
+                      name="name"
+                      required
+                      aria-label="Name"
+                    />
+                    <input
+                      type="email"
+                      class="input-field"
+                      placeholder="Email"
+                      name="email"
+                      required
+                      aria-label="Email"
+                    />
+                  </div>
+                  <div class="text-area">
+                    <textarea
+                      placeholder="Message"
+                      name="message"
+                      required
+                      aria-label="Message"
+                    ></textarea>
+                  </div>
+                  <div class="honeypot-field">
+                    <label for="honeypot">Leave this field empty:</label>
+                    <input type="text" id="honeypot" name="honeypot" />
+                  </div>
+                  <div class="form-button">
+                    <button type="submit" class="btn">
+                      Send <i class="uil uil-message"></i>
+                    </button>
+                  </div>
+                </form>
+                <iframe name="formspree-iframe"></iframe>
+              </div>
             </div>
           </div>
         </section>
       </main>
-
-      <!-- HIDDEN IFRAME FOR FORMSPREE -->
-      <iframe name="formspree-iframe" style="display: none;"></iframe>
-
-      <!-- FOOTER -->
+      <!-- -------------- FOOTER ---------------- -->
       <footer>
         <div class="top-footer">
           <p>Eslam Gamil</p>
@@ -272,41 +303,40 @@
         </div>
         <div class="footer-social-icons">
           <div class="icon">
-            <a href="https://www.instagram.com/eslam.div?igsh=ZDliZXd2d2wxbXJz&utm_source=qr" target="_blank">
+            <a href="https://www.instagram.com/eslam.div?igsh=ZDliZXd2d2wxbXJz&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i class="uil uil-instagram"></i>
             </a>
           </div>
           <div class="icon">
-            <a href="https://www.linkedin.com/in/eslam-gamil-bb2008256/" target="_blank">
+            <a href="https://www.linkedin.com/in/eslam-gamil-bb2008256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i class="uil uil-linkedin-alt"></i>
             </a>
           </div>
           <div class="icon">
-            <a href="https://www.facebook.com/share/1CQXB2QxgT/?mibextid=wwXIfr" target="_blank">
+            <a href="https://www.facebook.com/share/1CQXB2QxgT/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i class="uil uil-facebook-f"></i>
             </a>
           </div>
           <div class="icon">
-            <a href="https://github.com/eslam2981" target="_blank">
+            <a href="https://github.com/eslam2981" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <i class="uil uil-github-alt"></i>
             </a>
           </div>
         </div>
         <div class="bottom-footer">
           <p>
-            Copyright &copy;
+            Copyright &copy; 2024
             <a href="#home" class="name-highlight">Eslam Gamil</a> - All
             rights reserved
           </p>
         </div>
       </footer>
     </div>
-
-    <!-- TYPING JS -->
+    <!-- ----- TYPED.JS ----- -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- SCROLL REVEAL JS -->
+    <!-- ----- SCROLL REVEAL JS ----- -->
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-    <!-- MAIN JS -->
+    <!-- ----- MAIN JS ----- -->
     <script src="script.js"></script>
   </body>
 </html>
