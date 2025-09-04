@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,7 +44,16 @@
               <a href="#about" class="nav-link">About</a>
             </li>
             <li class="nav_list">
-              <a href="#projects" class="nav-link">Projects</a>
+              <a href="#services" class="nav-link">Services</a>
+            </li>
+            <li class="nav_list">
+              <a href="#experience" class="nav-link">Experience</a>
+            </li>
+            <li class="nav_list">
+              <a href="#projects" class="nav-link">Highlights</a>
+            </li>
+            <li class="nav_list">
+              <a href="#portfolio" class="nav-link">Projects</a>
             </li>
             <li class="nav_list">
               <a href="#contact" class="nav-link">Contact</a>
@@ -70,6 +79,7 @@
           </button>
         </div>
       </nav>
+      <div class="menu-backdrop" id="menu-backdrop"></div>
       <!-- -------------- MAIN ---------------- -->
       <main class="wrapper" id="home">
         <!-- -------------- FEATURED BOX ---------------- -->
@@ -85,8 +95,7 @@
             </div>
             <div class="featured-text-info">
               <p>
-                Experienced frontend developer with a passion for creating
-                visually stunning and user-friendly websites.
+                Experienced frontend developer with a passion for creating visually stunning and user-friendly websites.
               </p>
             </div>
             <div class="featured-text-btn">
@@ -139,11 +148,7 @@
               <div class="about-info">
                 <h3>My Introduction</h3>
                 <p>
-                  I am well-versed in HTML, CSS and JavaScript, and other
-                  cutting edge frameworks and libraries, which allows me to
-                  implement interactive features. Additionally, I have
-                  experience working with content management systems (CMS) like
-                  WordPress.
+                  I am well-versed in HTML, CSS and JavaScript, and other cutting edge frameworks and libraries, which allows me to implement interactive features. Additionally, I have experience working with content management systems (CMS) like WordPress.
                 </p>
                 <div class="about-btn">
                   <a href="assets/Eslam_Gamil_Ebrahim_CV.pdf" download>
@@ -164,6 +169,7 @@
                   <span>CSS</span>
                   <span>Bootstrap</span>
                   <span>JavaScript</span>
+                  <span>Vue</span>
                   <span>React</span>
                   <span>Angular</span>
                 </div>
@@ -173,6 +179,7 @@
                   <h3>Backend</h3>
                 </div>
                 <div class="skills-list">
+                  <span>PHP</span>
                   <span>Java</span>
                   <span>Python</span>
                   <span>C++</span>
@@ -185,7 +192,57 @@
                 <div class="skills-list">
                   <span>MySQL</span>
                   <span>PostgreSQL</span>
+                  <span>MongoDB</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- -------------- SERVICES BOX ---------------- -->
+        <section class="section" id="services">
+          <div class="top-header">
+            <h1>Services</h1>
+            <span>End-to-end digital solutions for your business</span>
+          </div>
+          <div class="project-container" aria-label="Services">
+            <div class="project-box">
+              <i class="uil uil-window"></i>
+              <h3>Frontend Development</h3>
+              <label>Interactive, responsive web apps</label>
+            </div>
+            <div class="project-box">
+              <i class="uil uil-mobile-android"></i>
+              <h3>Responsive Design</h3>
+              <label>Great UX across all devices</label>
+            </div>
+            <div class="project-box">
+              <i class="uil uil-rocket"></i>
+              <h3>Performance</h3>
+              <label>Speed, SEO, and best practices</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- -------------- EXPERIENCE BOX ---------------- -->
+        <section class="section" id="experience">
+          <div class="top-header">
+            <h1>Experience</h1>
+            <span>Key professional milestones</span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="about-info">
+                <h3>Front-End Developer</h3>
+                <p>Built modern, responsive UIs with a strong focus on accessibility and user experience.
+                    Worked with React, Tailwind CSS, and modern JavaScript best practices.</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="about-info">
+                <h3>JavaScript Developer</h3>
+                <p>Developed dynamic web applications using ES6+, APIs, and state management.
+                    Focused on performance optimization and clean, maintainable code.</p>
               </div>
             </div>
           </div>
@@ -193,7 +250,7 @@
         <!-- -------------- PROJECT BOX ---------------- -->
         <section class="section" id="projects">
           <div class="top-header">
-            <h1>Projects</h1>
+            <h1>Highlights</h1>
           </div>
           <div class="project-container" aria-label="Stats">
             <div class="project-box">
@@ -211,6 +268,27 @@
               <h3>Experience</h3>
               <label>2+ Years in the Field</label>
             </div>
+          </div>
+
+        </section>
+        
+        <!-- -------------- PORTFOLIO (PROJECTS WITH IMAGES) ---------------- -->
+        <section class="section" id="portfolio">
+          <div class="top-header">
+            <h1>Projects</h1>
+            <span>Selected real-world projects</span>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card" style="text-align:center; display:flex; align-items:center; justify-content:center; padding:32px;">
+              <div class="project-content">
+                <i class="uil uil-constructor" style="font-size:48px; color: var(--second-color);"></i>
+                <h3 class="project-title" style="margin-top:8px;">Projects In Progress</h3>
+                <p class="project-desc">I'm currently building new projects. Check back soon!</p>
+                <div class="project-links" style="justify-content:center;">
+                  <a class="btn" href="https://github.com/eslam2981" target="_blank" rel="noopener noreferrer">GitHub <i class="uil uil-github-alt"></i></a>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
         <!-- -------------- CONTACT BOX ---------------- -->
@@ -294,7 +372,16 @@
               <a href="#about">About</a>
             </li>
             <li class="footer_menu_list">
-              <a href="#projects">Projects</a>
+              <a href="#services">Services</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#experience">Experience</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#projects">Highlights</a>
+            </li>
+            <li class="footer_menu_list">
+              <a href="#portfolio">Projects</a>
             </li>
             <li class="footer_menu_list">
               <a href="#contact">Contact</a>
@@ -332,11 +419,11 @@
         </div>
       </footer>
     </div>
-    <!-- ----- TYPED.JS ----- -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- ----- SCROLL REVEAL JS ----- -->
-    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
-    <!-- ----- MAIN JS ----- -->
+         <!-- ----- TYPED.JS ----- -->
+     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+     <!-- ----- SCROLL REVEAL JS ----- -->
+     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+     <!-- ----- MAIN JS ----- -->
     <script src="script.js"></script>
   </body>
 </html>

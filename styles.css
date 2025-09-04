@@ -11,12 +11,21 @@
   --second-color: rgb(0, 184, 224);
   --third-color: rgb(180, 150, 40);
   --first-shadow-color: rgba(0, 0, 0, 0.15);
+  /* Elevation Shadows (light mode - directional for better affordance) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.10);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.12), 0 8px 18px rgba(0,0,0,0.10);
+  --shadow-lg: 0 10px 24px rgba(0,0,0,0.16), 0 16px 36px rgba(0,0,0,0.12);
+  --card-border: rgba(0,0,0,0.06);
   /* Dark Mode Variables */
   --body-color-dark: rgb(18, 18, 18);
   --color-white-dark: rgb(35, 35, 35);
   --text-color-second-dark: rgb(210, 210, 210);
   --text-color-third-dark: rgb(50, 190, 200);
   --first-shadow-color-dark: rgba(255, 255, 255, 0.15);
+  /* Dark-mode blue glow (omni-directional) */
+  --shadow-sm-dark: 0 0 10px rgba(50, 190, 200, 0.25);
+  --shadow-md-dark: 0 0 18px rgba(50, 190, 200, 0.28), 0 0 36px rgba(50, 190, 200, 0.18);
+  --shadow-lg-dark: 0 0 28px rgba(50, 190, 200, 0.32), 0 0 56px rgba(50, 190, 200, 0.20);
 }
 /* Skip link */
 .skip-link {
@@ -61,6 +70,14 @@
 .dark-mode .featured-text-card span {
   background: rgb(140, 120, 30);
 }
+/* Dark-mode subtle borders for cards */
+.dark-mode .project-card,
+.dark-mode .project-box,
+.dark-mode .about-info,
+.dark-mode .contact-info,
+.dark-mode .icon {
+  border: 1px solid rgba(255,255,255,0.06);
+}
 .dark-mode .about-info p,
 .dark-mode .project-box label,
 .dark-mode .footer_menu_list a {
@@ -103,10 +120,12 @@
   background: rgba(35, 35, 35, 0.95);
   backdrop-filter: blur(12px);
 }
+.dark-mode nav.scrolled { background: rgba(35,35,35,0.95) !important; box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
 .dark-mode .success-message {
   background: rgb(50, 190, 200);
   color: var(--color-white-dark);
 }
+
 /* ----- BASE ----- */
 * {
   margin: 0;
@@ -139,11 +158,11 @@ html {
   font-weight: 500;
   padding: 12px 24px;
   background: var(--color-white);
-  border: none;
+  border: 1px solid var(--card-border);
   border-radius: 10px;
   cursor: pointer;
   transition: transform 250ms cubic-bezier(0.2, 0.65, 0.2, 1), box-shadow 250ms ease, background 250ms ease, color 250ms ease;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
@@ -151,16 +170,26 @@ html {
   align-items: center;
   justify-content: center;
 }
-.btn > i {
-  margin-left: 8px;
-  font-size: 16px;
-}
 .btn:hover {
   background: var(--second-color);
   color: var(--color-white);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-md);
 }
+.dark-mode .btn { box-shadow: var(--shadow-sm-dark); }
+.dark-mode .btn:hover { box-shadow: var(--shadow-md-dark); }
+.btn > i {
+  margin-left: 8px;
+  font-size: 16px;
+}
+/* RTL tweaks (remain inactive in LTR) */
+html[dir="rtl"] .btn > i { margin-left: 0; margin-right: 8px; }
+html[dir="rtl"] .featured-name p { direction: rtl; }
+html[dir="rtl"] .featured-text-info p { direction: rtl; }
+html[dir="rtl"] .nav-menu { justify-content: center; }
+html[dir="rtl"] .nav-menu .nav_menu_list { flex-direction: row; }
+html[dir="rtl"] .social_icons { direction: rtl; }
+
 /* ----- GLOBAL ICONS DESIGN ----- */
 i {
   font-size: 18px;
@@ -187,6 +216,9 @@ img { display: block; max-width: 100%; height: auto; }
   outline: 3px solid var(--second-color);
   outline-offset: 2px;
 }
+/* Single-focus frame for inputs and textarea */
+.input-field:focus-visible,
+textarea:focus-visible { outline: none; }
 /* ----- Subtle continuous animations ----- */
 @keyframes floatY {
   0% { transform: translateY(0); }
@@ -210,6 +242,7 @@ img { display: block; max-width: 100%; height: auto; }
   position: relative;
   overflow: hidden;
 }
+
 .scroll-btn::before {
   content: '';
   position: absolute;
@@ -220,9 +253,11 @@ img { display: block; max-width: 100%; height: auto; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   transition: left 0.5s;
 }
+
 .scroll-btn:hover::before {
   left: 100%;
 }
+
 .scroll-btn:hover {
   transform: translateX(-50%) translateY(-8px) scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -257,6 +292,12 @@ nav {
   z-index: 100;
   border-radius: 0;
 }
+nav.scrolled {
+  height: 60px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(14px);
+}
 .nav-logo, .nav-menu, .nav-button, .nav-menu-btn { min-width: 0; }
 .nav-logo {
   position: relative;
@@ -284,6 +325,7 @@ nav {
 .nav_menu_list {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .nav-menu { justify-content: center; }
 .nav-menu .nav_list {
@@ -296,15 +338,17 @@ nav {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 15px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   margin-inline: 15px;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease, background 0.25s ease;
   position: relative;
   z-index: 2;
+  border-radius: 10px;
 }
 .nav-link:hover,
 .nav-link.active-link {
   color: var(--first-color);
+  background: rgba(90, 70, 200, 0.08);
 }
 .nav_menu_list::after {
   content: "";
@@ -315,6 +359,7 @@ nav {
   background: var(--first-color);
   transition: all 0.3s ease;
   z-index: 1;
+  display: none;
 }
 .nav-link:hover ~ .nav_menu_list::after,
 .nav-link.active-link ~ .nav_menu_list::after {
@@ -494,7 +539,8 @@ nav {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
   cursor: pointer;
   background: var(--color-white);
   color: var(--text-color-second);
@@ -508,7 +554,7 @@ nav {
   background: var(--first-color);
   color: var(--color-white);
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-lg);
 }
 .icon i {
   font-size: 24px;
@@ -517,9 +563,11 @@ nav {
   background: rgb(50, 50, 50);
   color: var(--text-color-second-dark);
 }
+.dark-mode .icon { box-shadow: var(--shadow-md-dark); }
 .dark-mode .icon:hover {
   background: var(--first-color);
   color: var(--color-white-dark);
+  box-shadow: var(--shadow-lg-dark);
 }
 /* ----- SCROLL BUTTON ----- */
 .scroll-btn {
@@ -543,6 +591,7 @@ nav {
   opacity: 0;
   animation: fadeInUp 1s ease-out 2s forwards;
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -564,7 +613,7 @@ nav {
 .section {
   padding-block: 6em;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible;
 }
 .row {
   display: flex;
@@ -610,9 +659,27 @@ h3 {
   padding: 40px 30px;
   width: 100%;
   background: var(--color-white);
-  box-shadow: 0 4px 12px var(--first-shadow-color);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
   border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
+#experience .about-info h3, #experience .about-info p { transition: color 0.25s ease; }
+/* Light mode hover for Experience cards */
+#experience .about-info:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0,0,0,0.08);
+  background: var(--second-color);
+  color: #fff;
+}
+
+
+#experience .about-info:hover h3,
+#experience .about-info:hover p,
+#experience .about-info:hover i { color: #fff; }
+.dark-mode .about-info { box-shadow: var(--shadow-md-dark); }
+.dark-mode .about-info:hover { box-shadow: var(--shadow-lg-dark); }
 .about-info p {
   text-align: center;
   font-size: 16px;
@@ -655,6 +722,37 @@ h3 {
   border-radius: 8px;
   font-weight: 500;
 }
+
+/* Dark mode hover effect for Experience cards */
+  .dark-mode #experience .about-info {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-white-dark); /* للتأكد من إن الخلفية الأساسية مش بتتغير */
+  }
+  .dark-mode #experience .about-info::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    background: var(--first-color); /* اللون الأرجواني */
+    width: 100%;
+    height: 100%;
+    transition: bottom 0.4s ease;
+    z-index: 1;
+  }
+  .dark-mode #experience .about-info:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg-dark);
+    border-color: rgba(255,255,255,0.06);
+  }
+  .dark-mode #experience .about-info:hover::after {
+    bottom: 0;
+  }
+  .dark-mode #experience .about-info:hover h3,
+  .dark-mode #experience .about-info:hover p,
+  .dark-mode #experience .about-info:hover i {
+    color: var(--color-white);
+    z-index: 2;
+  }
 /* ----- PROJECTS BOX ----- */
 .project-container {
   display: grid;
@@ -662,6 +760,9 @@ h3 {
   width: 100%;
   gap: 25px;
 }
+/* Increase spacing between cards in Services and Projects */
+#services .project-container,
+#projects .project-container { gap: 48px; }
 .project-box {
   position: relative;
   display: flex;
@@ -672,13 +773,19 @@ h3 {
   height: 280px;
   background: var(--color-white);
   border-radius: 16px;
-  box-shadow: 0 4px 12px var(--first-shadow-color);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+/* Ensure services card text is centered like others */
+#services .project-box, #services .project-box h3, #services .project-box label { text-align: center; }
 .project-box:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
+.dark-mode .project-box { box-shadow: var(--shadow-md-dark); }
+.dark-mode .project-box:hover { box-shadow: var(--shadow-lg-dark); }
 .project-box > i {
   font-size: 60px;
   color: var(--second-color);
@@ -698,6 +805,8 @@ h3 {
   transition: 0.4s;
   z-index: 1;
 }
+/* Light mode: use blue overlay instead of purple on hover for cards */
+body:not(.dark-mode) .project-box::after { background: var(--second-color); }
 .project-box:hover::after {
   bottom: 0;
 }
@@ -719,9 +828,12 @@ h3 {
   height: 340px;
   background: var(--second-color);
   border-radius: 16px;
-  box-shadow: 0 4px 12px var(--first-shadow-color);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
+.dark-mode .contact-info { box-shadow: var(--shadow-md-dark); }
+.dark-mode .contact-info:hover { box-shadow: var(--shadow-lg-dark); }
 .contact-info > h2 {
   color: #fff;
   font-family: "Montserrat", sans-serif;
@@ -735,6 +847,7 @@ h3 {
   font-size: 16px;
   margin-block: 8px;
 }
+html[dir="rtl"] .contact-info > p { justify-content: center; }
 .contact-info p > i {
   font-size: 20px;
   color: #fff;
@@ -749,6 +862,16 @@ h3 {
   transition: bottom 0.4s ease;
   z-index: 1;
 }
+/* Light mode: match other cards (white base, blue on hover) */
+body:not(.dark-mode) .contact-info { background: var(--color-white); border: 1px solid var(--card-border); }
+body:not(.dark-mode) .contact-info > h2,
+body:not(.dark-mode) .contact-info > p,
+body:not(.dark-mode) .contact-info p > i { color: var(--text-color-second); }
+body:not(.dark-mode) .contact-info:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); background: var(--second-color); border-color: transparent; }
+body:not(.dark-mode) .contact-info:hover > h2,
+body:not(.dark-mode) .contact-info:hover > p,
+body:not(.dark-mode) .contact-info:hover p > i { color: #fff; }
+body:not(.dark-mode) .contact-info::after { content: none; }
 .contact-info:hover::after {
   bottom: 0;
 }
@@ -806,7 +929,8 @@ h3 {
 }
 .input-field:focus {
   border-color: var(--second-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  box-shadow: none;
+  outline: none;
 }
 textarea {
   width: 100%;
@@ -823,6 +947,7 @@ textarea {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 @media only screen and (max-width: 540px) {
   textarea {
     height: 200px;
@@ -833,7 +958,8 @@ textarea {
 }
 textarea:focus {
   border-color: var(--second-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  box-shadow: none;
+  outline: none;
 }
 .form-button > .btn {
   display: flex;
@@ -889,7 +1015,7 @@ footer {
   background: #f5f5f5;
   padding-block: 50px 70px;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible;
 }
 .top-footer p {
   font-family: "Montserrat", sans-serif;
@@ -940,12 +1066,13 @@ footer {
   height: 40px;
   border-radius: 10px;
   background: var(--color-white);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
+.dark-mode .theme-toggle, .dark-mode .theme-toggle-mobile { box-shadow: var(--shadow-sm-dark); }
 .theme-toggle:hover, .theme-toggle-mobile:hover {
   background: var(--first-color);
   color: var(--color-white);
@@ -962,16 +1089,21 @@ footer {
   gap: 25px;
   width: 100%;
 }
+/* Match larger spacing in Portfolio section */
+#portfolio .projects-grid { gap: 48px; }
 .project-card {
   background: var(--color-white);
   border-radius: 16px;
-  box-shadow: 0 4px 12px var(--first-shadow-color);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 280ms cubic-bezier(0.2, 0.65, 0.2, 1), box-shadow 280ms ease;
 }
-.project-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.16); }
+.project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.dark-mode .project-card { box-shadow: var(--shadow-md-dark); }
+.dark-mode .project-card:hover { box-shadow: var(--shadow-lg-dark); }
 .project-thumb {
   aspect-ratio: 16 / 9;
   width: 100%;
@@ -988,7 +1120,10 @@ footer {
 .project-desc { color: #666; font-size: 14px; margin-bottom: 10px; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .project-tags span { font-size: 12px; background: var(--first-color); color: #fff; padding: 4px 8px; border-radius: 6px; }
+body:not(.dark-mode) .project-tags span { background: var(--second-color); }
 .project-links { display: flex; gap: 10px; }
+/* Add extra spacing for the GitHub button in Projects section */
+#portfolio .project-links { margin-top: 16px; }
 .project-links a { text-decoration: none; }
 /* ----- MEDIA QUERY == 1200px ----- */
 @media only screen and (max-width: 1200px) {
@@ -1088,6 +1223,7 @@ footer {
   .col { justify-content: stretch; width: 100%; gap: 16px; }
   .about-info { padding: 28px 20px; }
   .skills-box { margin: 0; }
+
   .skills-list { gap: 6px; }
   .project-container {
     justify-content: center;
@@ -1155,6 +1291,7 @@ footer {
   .about-info { padding: 22px 16px; }
   .skills-box { margin: 0; }
   .skills-list span { font-size: 13px; }
+
   .form-inputs {
     flex-direction: column;
     gap: 12px;
@@ -1176,6 +1313,8 @@ footer {
   .footer_menu_list a { margin-inline: 8px; font-size: 14px; white-space: nowrap; }
   .footer-social-icons { gap: 16px; }
   .bottom-footer { font-size: 14px; text-align: center; }
+  /* Hide entire footer on small screens */
+  footer { display: none !important; }
 }
 /* Ultra-small devices */
 @media only screen and (max-width: 380px) {
@@ -1204,4 +1343,19 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+.nav-hover-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  width: 0;
+  border-radius: 10px;
+  background: rgba(90, 70, 200, 0.12);
+  box-shadow: 0 6px 16px rgba(90,70,200,0.15);
+  transition: none;
+  will-change: auto;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
 }
