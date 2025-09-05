@@ -116,7 +116,7 @@ navMenuList.addEventListener("mouseleave", () => {
 // ---- Typed.js for Hero Section ---- //
 var typed = new Typed(".typedText", {
   strings: [
-    "Frontend Developer",
+    "Frontender",
     "Web Designer",
     "Problem Solver",
     "Creative Coder",
@@ -223,9 +223,62 @@ window.addEventListener("load", () => {
     srLeft.reveal('.about-info', { delay: 200 });
     srRight.reveal('.skills-box', { delay: 300, interval: 200 });
 
-    // Projects Section - Scale and stagger
-    sr.reveal('#projects .top-header', { delay: 100 });
-    srScale.reveal('.project-box', { interval: 250, delay: 200 });
+    // Projects Section (Highlights) - Scale and stagger
+    sr.reveal('#projects .top-header', { 
+      origin: 'top',
+      distance: prefersReduced ? '0px' : '80px',
+      duration: prefersReduced ? 0 : 1200,
+      delay: prefersReduced ? 0 : 100,
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      reset: !prefersReduced
+    });
+    srScale.reveal('#projects .project-box', { 
+      interval: 250, 
+      delay: prefersReduced ? 0 : 200,
+      duration: prefersReduced ? 0 : 1000,
+      scale: prefersReduced ? 1 : 0.8,
+      reset: !prefersReduced
+    });
+
+  // Services Section - Staggered from top
+  sr.reveal('#services .top-header', { 
+      origin: 'top',
+      distance: prefersReduced ? '0px' : '80px',
+      duration: prefersReduced ? 0 : 1200,
+      delay: prefersReduced ? 0 : 100,
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      reset: !prefersReduced
+    });
+    sr.reveal('#services .project-box', { 
+      origin: 'top',
+      distance: prefersReduced ? '0px' : '80px',
+      interval: 250,
+      delay: prefersReduced ? 0 : 200,
+      duration: prefersReduced ? 0 : 1200,
+      opacity: prefersReduced ? 1 : 0,
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      reset: !prefersReduced
+    });
+
+    // Portfolio Section (Projects) - Staggered cards with top reveal
+    sr.reveal('#portfolio .top-header', { 
+      origin: 'top',
+      distance: prefersReduced ? '0px' : '80px',
+      duration: prefersReduced ? 0 : 1200,
+      delay: prefersReduced ? 0 : 100,
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      reset: !prefersReduced
+    });
+    sr.reveal('#portfolio .project-card', { 
+      origin: 'top',
+      distance: prefersReduced ? '0px' : '80px',
+      interval: 250,
+      delay: prefersReduced ? 0 : 200,
+      duration: prefersReduced ? 0 : 1200,
+      opacity: prefersReduced ? 1 : 0,
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      reset: !prefersReduced
+    });
 
     // Contact Section - Left/Right
     sr.reveal('#contact .top-header', { delay: 100 });
