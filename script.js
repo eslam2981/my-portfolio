@@ -3,13 +3,16 @@ const themeToggleDesktop = document.getElementById("theme-toggle-desktop");
 const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const body = document.body;
 
-// Check for saved theme preference or system preference
-if (
-  localStorage.getItem("theme") === "dark" ||
-  (!localStorage.getItem("theme") &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
+// Set dark mode as default theme
+if (localStorage.getItem("theme") === "light") {
+  // Only use light mode if explicitly set
+  body.classList.remove("dark-mode");
+} else {
+  // Default to dark mode
   body.classList.add("dark-mode");
+  if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", "dark");
+  }
 }
 
 // Toggle theme on button click
@@ -300,6 +303,30 @@ window.addEventListener("load", () => {
     srBottom.reveal('footer .footer-social-icons .icon', { interval: 100, delay: 300 });
     srBottom.reveal('footer .bottom-footer', { delay: 400 });
   }
+});
+
+// ---- Force CV Download ---- //
+function forceDownload(url, filename) {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Add event listeners to all CV download links
+document.addEventListener('DOMContentLoaded', function() {
+  const cvLinks = document.querySelectorAll('a[href*="Eslam_Gamil_Ebrahim_CV.pdf"]');
+  
+  cvLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const cvUrl = this.getAttribute('href');
+      forceDownload(cvUrl, 'Eslam_Gamil_Ebrahim_CV.pdf');
+    });
+  });
 });
 
 // ---- Parallax Effect for Hero Blobs ---- //
