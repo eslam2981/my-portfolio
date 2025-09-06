@@ -1143,8 +1143,8 @@ body:not(.dark-mode) .project-tags span { background: var(--second-color); }
     font-size: 60px;
   }
 }
-/* ----- MEDIA QUERY == 900px ----- */
-@media only screen and (max-width: 900px) {
+/* ----- MEDIA QUERY == 1465px ----- */
+@media only screen and (max-width: 1465px) {
   nav { 
     padding-inline: 4vw; 
     display: flex;
