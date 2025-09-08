@@ -1125,6 +1125,59 @@ body:not(.dark-mode) .project-tags span { background: var(--second-color); }
 /* Add extra spacing for the GitHub button in Projects section */
 #portfolio .project-links { margin-top: 16px; }
 .project-links a { text-decoration: none; }
+
+/* ----- PROJECT IMAGE STYLES ----- */
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* ----- PROJECT TECH TAGS ----- */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tech-tag {
+  font-size: 12px;
+  background: var(--first-color);
+  color: var(--color-white);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.dark-mode .tech-tag {
+  background: var(--second-color);
+}
+
+/* ----- SECONDARY BUTTON STYLE ----- */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--first-color);
+  color: var(--first-color);
+}
+
+.btn-secondary:hover {
+  background: var(--first-color);
+  color: var(--color-white);
+}
 /* ----- MEDIA QUERY == 1200px ----- */
 @media only screen and (max-width: 1200px) {
   .wrapper { padding-inline: 6vw; }
